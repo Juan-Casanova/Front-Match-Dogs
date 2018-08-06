@@ -1,0 +1,54 @@
+<div class="col-lg-5">
+  <h1 class="h1-strong">{{title}}</h1>
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit()"class="col-lg-12">
+
+    <p>
+      <label>Nombre</label>
+      <input type="text"name="name"#name="ngModel"[(ngModel)]="user.name" class="form-control"
+      required/>
+      <span *ngIf="!name.valid && name.touched">
+        EL NOMBRE ES OBLIGATORIO
+      </span>
+    </p>
+
+    <p>
+        <label>Nickname</label>
+        <input type="text"name="nickname"#nickname="ngModel"[(ngModel)]="user.nickname" class="form-control"
+        required/>
+        <span *ngIf="!nickname.valid && nickname.touched">
+          EL NICKNAME ES OBLIGATORIO
+        </span>
+     </p>
+  
+     <p>
+        <label>Correo</label>
+        <input type="email"name="email"#email="ngModel"[(ngModel)]="user.email" class="form-control"
+        required/>
+        <span *ngIf="!email.valid && email.touched">
+          Este no es un correo
+        </span>
+      </p>
+
+      <p>
+          <label>Adress</label>
+          <input type="text"name="adress"#adress="ngModel"[(ngModel)]="user.adress" class="form-control"
+          required/>
+          <span *ngIf="!adress.valid && adress.touched">
+            LA DIRECCION ES OBLIGATORIA
+          </span>
+        </p>
+
+        <p>
+            <label>Password</label>
+            <input type="password"name="password"#password="ngModel"[(ngModel)]="user.password" class="form-control"
+            required/>
+            <span *ngIf="!password.valid && password.touched">
+              EL CONTRASEÑA ES OBLIGATORIA
+            </span>
+          </p>
+
+        <input type="submit" value="{{title}}" class="btn btn-success"[disabled]="!registerForm.form.valid"/>
+          
+
+  </form>
+</div>
