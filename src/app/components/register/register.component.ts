@@ -35,14 +35,15 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(){
     this._userService.register(this.user).subscribe(
-      response=>{
-        if(response.user&&response.user._id){
-          console.log(response.user);
-        }
-      },
-      error=>{
-        console.log(<any>error)
+    response =>{
+      if(response.user && response.user._id){
+        console.log(response.user);
       }
+    },
+    error =>{
+      console.log(<any>error);
+    }
+    
     );
   }
 }
