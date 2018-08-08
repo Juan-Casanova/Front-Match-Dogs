@@ -4,7 +4,7 @@ import {User}from '../../models/user';
 import {UserService}from '../../srevices/user.service';
 
 @Component({
-  selector: 'register',
+  selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
   providers:[UserService]

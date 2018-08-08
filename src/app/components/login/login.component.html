@@ -2,7 +2,7 @@
     <h1 class="h1-strong">{{title}}</h1>
 
     <div class="alert alert-success" *ngIf="status=='success'">
-        Te has registrado correctamente,<a [routerLink]="['/login']">identificate aquí</a>
+        Te has registrado correctamente,<a [routerLink]="['/registro']">registrate aquí</a>
     </div>
         
     <div class="alert alert-danger" *ngIf="status=='error'">
@@ -26,6 +26,8 @@
         </p>
 
         <input type="submit"value="Entrar"class="btn btn-success"[disabled]="!loginForm.form.valid"/>
+
+        <!-- <input type="submit" [routerLink]="['/Muro']" /> -->
     </form>
     
 </div>

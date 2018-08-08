@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 import { pipe } from '@angular/core/src/render3/pipe';
 //import { TagPlaceholder } from '@angular/compiler/src/i18n/i18n_ast';
 import {of} from "rxjs/observable/of";
-import { catchError, tap } from 'rxjs/operators';
+import { catchError,map, tap } from 'rxjs/operators';
 
 const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
 
@@ -17,11 +17,12 @@ const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/js
 
 export class UserService{
 
-    public url:string="/";
+    public url:string="http://localhost:3000/";
     public identity;
     public token; 
     //public url:string;
 
+    
     constructor(private _http:HttpClient){}
     
     register(user:User):Observable<any>{
@@ -32,8 +33,15 @@ export class UserService{
         // return this._http.post<User>(this.url+'register',params,httpOptions),pipe(
         //     tap((_ => this.log(`fetched hero id=${id}`)),
         //     catchError(this.handleError<User>(`getUser id=${id}`)))
-        return this._http.post(this.url + 'register',params,{headers:headers})
+        // return this._http.post(this.url + 'register',params,{headers:headers})
         // .pipe(map((res: Response) => res.json()))
+
+        // return this._http.post<User>(this.url+'register', httpOptions).pipe(
+        //     tap((user:User) => this.log(`added cluster w/ id=${User.id}`)),
+        //     catchError(this.handleError<User>('addCluster'))
+        //   );
+        return this._http.post<User>(this.url+'register',params, httpOptions);
+
     }
 
     signup(user:User,gettoken=null):Observable<any>{
@@ -43,7 +51,7 @@ export class UserService{
         let params=JSON.stringify(user);
         let headers=new HttpHeaders().set('Content-Type','application/json');
 
-        return this._http.post(this.url+'login',params, { headers:headers})
+        return this._http.post<User>(this.url+'login',params, httpOptions);
     }
 
     getIdentity(){

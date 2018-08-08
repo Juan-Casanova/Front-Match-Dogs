@@ -13,6 +13,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
+import { MuroComponent } from './components/muro/muro.component';
+import { DogComponent } from './components/dog/dog.component';
+
 //import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
@@ -21,6 +24,9 @@ import { HomeComponent } from './components/home/home.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    MuroComponent,
+    DogComponent,
+
    // ProfileComponent   
   ],
   imports: [
