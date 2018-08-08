@@ -12,6 +12,7 @@ declare var $:any;
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { HomeComponent } from './components/home/home.component';
 //import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
@@ -19,6 +20,7 @@ import { RegisterComponent } from './components/register/register.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    HomeComponent,
    // ProfileComponent   
   ],
   imports: [

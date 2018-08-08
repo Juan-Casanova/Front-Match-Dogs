@@ -4,9 +4,9 @@
       <div class="navbar-header">
         <a href="#" class="navbar-brand">{{title}}</a>
       </div>
-      <ul>
+      <ul class="nav navbar-nav" *ngIf="identity">
         <li>
-          <a href="#">
+          <a [routerLink]="['/home']"[routerLinkActive]="['active']">
             <span class="glyphicon glyphicon-home"></span>
             INICIO
           </a>
@@ -23,6 +23,21 @@
                 GENTE
               </a>
             </li>
+      </ul>
+      <ul class="nav navbar navbar-nav navbar-right" *ngIf="!identity">
+          <li>
+              <a [routerLink]="['/login']"[routerLinkActive]="['active']">
+                <span class="glyphicon glyphicon-log-in"></span>
+                LOGIN
+              </a>
+            </li>
+            <li>
+                <a [routerLink]="['/registro']"[routerLinkActive]="['active']">
+                  <span class="glyphicon glyphiconuser"></span>
+                  REGISTRATE
+                </a>
+            </li>        
+
       </ul>
     </div>
   </nav>

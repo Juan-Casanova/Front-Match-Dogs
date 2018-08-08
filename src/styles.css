@@ -9,6 +9,10 @@
     border-bottom: 1px solid #eee; 
 }
 
+.active{
+    background:#cc1717
+}
+
 /* You can add global styles to this file, and also import other style files */
 .navigation{
     padding: 0;
@@ -22,4 +26,13 @@
 
 .navigation .navbar *{
     color: white;
+}
+
+.navigation .navbar a:hover{
+    background:#cc1717 !important;
+}
+.jumbotron{
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
 }

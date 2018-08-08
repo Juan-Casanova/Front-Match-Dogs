@@ -1,5 +1,14 @@
 <div class="col-lg-5">
     <h1 class="h1-strong">{{title}}</h1>
+
+    <div class="alert alert-success" *ngIf="status=='success'">
+        Te has registrado correctamente,<a [routerLink]="['/login']">identificate aquí</a>
+    </div>
+        
+    <div class="alert alert-danger" *ngIf="status=='error'">
+       Datos erroneos
+    </div>
+
     <form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="col-lg-12">
         <p>
             <label>correo electronico</label>
