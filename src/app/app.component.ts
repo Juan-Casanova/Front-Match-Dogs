@@ -1,26 +1,42 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
-import {UserService} from './srevices/user.service'
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { UserService } from './services/user.service';
+import { GLOBAL } from './services/global';
+declare var jQuery:any;
+declare var $:any;
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers:[UserService]
+  providers: [UserService]
 })
-export class AppComponent implements OnInit,DoCheck{
+export class AppComponent implements OnInit, DoCheck{
   public title:string;
   public identity;
+  public url: string;
 
   constructor(
-    private _userService:UserService
+    private _route: ActivatedRoute,
+    private _router: Router,
+  	private _userService:UserService
   ){
-    this.title='Match Dogs'
+  	this.title = 'NGSOCIAL';
+    this.url = GLOBAL.url;
   }
-    ngOnInit(){
-      this.identity=this._userService.getIdentity();
-    }
 
-    ngDoCheck(){
-      this.identity=this._userService.getIdentity();
-    }
+  ngOnInit(){
+  	this.identity = this._userService.getIdentity();
+  }
+
+  ngDoCheck(){
+  	this.identity = this._userService.getIdentity();
+  }
+
+  logout(){
+    localStorage.clear();
+    this.identity = null;
+    this._router.navigate(['/']);
+  }
+
 }
